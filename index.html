@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>test</title>
+
+        <style type="text/css">
+            html, body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                overflow-y: hidden; 
+            }
+
+            @font-face {
+                font-family: 'proxima_nova_rgregular';
+                src: url('fonts/proximanova-regular-webfont.eot');
+                src: url('fonts/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('fonts/proximanova-regular-webfont.woff2') format('woff2'),
+                     url('fonts/proximanova-regular-webfont.woff') format('woff'),
+                     url('fonts/proximanova-regular-webfont.ttf') format('truetype'),
+                     url('fonts/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
+                font-weight: normal;
+                font-style: normal;
+
+            }
+        </style>
+    </head>
+
+    <body onload="init();">
+        <canvas id="mainCanvas" width="640" height="480"></canvas>
+    </body>
+
+    <script type="text/javascript" src="bower_components/EaselJS/lib/easeljs-0.8.1.combined.js"></script>
+    <script src="https://code.createjs.com/tweenjs-0.6.1.min.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</html>
