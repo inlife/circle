@@ -352,7 +352,7 @@ function GameController() {
             var message = new createjs.Text();
             message.font = (size * modifier) + "px proxima_nova_rgregular";
             message.color = "#818181";
-            message.text = "never give up";
+            message.text = "dont let go";
             var msgbounds = message.getBounds();
             message.x = canvasW / 2 - msgbounds.width / 2;
             message.y = canvasH - 75 * modifier;
@@ -436,7 +436,7 @@ function GameController() {
             setRandomPhrase();
         }, 10000);
         
-        setRandomPhrase();
+        //setRandomPhrase();
 
 
         // ticker

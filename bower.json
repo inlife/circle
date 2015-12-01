@@ -1,0 +1,25 @@
+{
+  "name": "game-cirlces",
+  "main": "index.js",
+  "authors": [
+    "Vladislav Gritsenko <Vladgritsenko@gmail.com>"
+  ],
+  "description": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "EaselJS": "CreateJS/EaselJS#~0.8.1",
+    "fastclick": "ftlabs/fastclick#~1.0.6",
+    "jquery": "~2.1.4",
+    "TweenJS": "CreateJS/TweenJS#~0.6.1"
+  }
+}
