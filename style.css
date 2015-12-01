@@ -62,6 +62,12 @@ html {
     }
 }
 
+@media screen and (max-height: 480px) {
+    body {
+        font-size: 40px;
+    }
+}
+
 .container {
     margin: 5% 10%;
 }

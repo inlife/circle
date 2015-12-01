@@ -230,7 +230,7 @@ $(document).ready(function() {
             canvasH = canvas.height;
 
             var stage = new createjs.Stage("game_canvas");
-            var modifier = Math.sqrt( canvasW / 480 );
+            var modifier = Math.sqrt(Math.sqrt( canvasW / 480 ) * Math.sqrt( canvasH / 720 ));
 
             if (window.devicePixelRatio) {
                 // grab the width and height from canvas
@@ -446,7 +446,7 @@ $(document).ready(function() {
                     }
 
                     // check for gameover
-                    if (circleSize * modifier < 5) {
+                    if (circleSize * modifier < 10) {
 
                         GC.finish();
                         hideall();
