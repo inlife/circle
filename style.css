@@ -82,7 +82,7 @@ h1, h2 {
 h2 {
     margin-top: 10%;
     margin-bottom: 50px; 
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 .menu {
@@ -110,6 +110,10 @@ a:hover, a:active {
 
 .inline-controls a:first-child {
     margin-right: 50px;
+}
+
+.inline-controls a {
+    font-size: 1em;
 }
 
 .centered {

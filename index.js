@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+    if (typeof console == "undefined") {
+        window.console = {
+            log: function () {}
+        };
+    }
+
+
     $(function() {
         FastClick.attach(document.body);
     });
@@ -155,6 +162,7 @@ $(document).ready(function() {
         hideifnot("#page_menu");
         hideifnot("#page_game");
         hideifnot("#page_highscores");
+        hideifnot("#page_about");
     }
 
     $(".button_menu").click(function() {
@@ -197,8 +205,10 @@ $(document).ready(function() {
         $("#page_highscores").removeClass("hidden");
     });
 
-    $(".button_exit").click(function() {
-        console.log("btn:exit");
+    $(".button_about").click(function() {
+        console.log("btn:about");
+        hideall();
+        $("#page_about").removeClass("hidden");
     })
 
 
@@ -264,12 +274,15 @@ $(document).ready(function() {
             var phrases = [
                 "dont let go", 
                 "never give up" , 
-                "water is wet", 
                 "just do it",
+                "dont let your dreams be dreams",
                 "10/10",
+                "wow",
+                "amazing",
+                "youre doing great",
                 "best game ever",
                 "dont be a salad",
-                "dont let your dreams be dreams",
+                "water is wet", 
                 "quitters gonna quit", 
                 "its always easier to leave"
             ];
