@@ -4,6 +4,144 @@ $(document).ready(function() {
         FastClick.attach(document.body);
     });
 
+    /*
+     * ColorLuminance("#69c", 0);       // returns "#6699cc"
+     * ColorLuminance("6699CC", 0.2);  // "#7ab8f5" - 20% lighter
+     * ColorLuminance("69C", -0.5);    // "#334d66" - 50% darker
+     * ColorLuminance("000", 1);       // "#000000" - true black cannot be made lighter!
+     */
+    function ColorLuminance(hex, lum) {
+
+        // validate hex string
+        hex = String(hex).replace(/[^0-9a-f]/gi, '');
+        if (hex.length < 6) {
+            hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+        }
+        lum = lum || 0;
+
+        // convert to decimal and change luminosity
+        var rgb = "#", c, i;
+        for (i = 0; i < 3; i++) {
+            c = parseInt(hex.substr(i*2,2), 16);
+            c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+            rgb += ("00"+c).substr(c.length);
+        }
+
+        return rgb;
+    }
+
+    /**
+     * Simple localStorage with Cookie Fallback
+     * v.1.0.0
+     *
+     * USAGE:
+     * ----------------------------------------
+     * Set New / Modify:
+     *   store('my_key', 'some_value');
+     *
+     * Retrieve:
+     *   store('my_key');
+     *
+     * Delete / Remove:
+     *   store('my_key', null);
+     */
+     
+    var store = function store(key, value) {
+     
+        var lsSupport = false;
+        
+        // Check for native support
+        if (localStorage) {
+            lsSupport = true;
+        }
+        
+        // If value is detected, set new or modify store
+        if (typeof value !== "undefined" && value !== null) {
+            // Convert object values to JSON
+            if ( typeof value === 'object' ) {
+                value = JSON.stringify(value);
+            }
+            // Set the store
+            if (lsSupport) { // Native support
+                localStorage.setItem(key, value);
+            } else { // Use Cookie
+                createCookie(key, value, 30);
+            }
+        }
+        
+        // No value supplied, return value
+        if (typeof value === "undefined") {
+            // Get value
+            if (lsSupport) { // Native support
+                data = localStorage.getItem(key);
+            } else { // Use cookie 
+                data = readCookie(key);
+            }
+            
+            // Try to parse JSON...
+            try {
+               data = JSON.parse(data);
+            }
+            catch(e) {
+               data = data;
+            }
+            
+            return data;
+            
+        }
+        
+        // Null specified, remove store
+        if (value === null) {
+            if (lsSupport) { // Native support
+                localStorage.removeItem(key);
+            } else { // Use cookie
+                createCookie(key, '', -1);
+            }
+        }
+        
+        /**
+         * Creates new cookie or removes cookie with negative expiration
+         * @param  key       The key or identifier for the store
+         * @param  value     Contents of the store
+         * @param  exp       Expiration - creation defaults to 30 days
+         */
+        
+        function createCookie(key, value, exp) {
+            var date = new Date();
+            date.setTime(date.getTime() + (exp * 24 * 60 * 60 * 1000));
+            var expires = "; expires=" + date.toGMTString();
+            document.cookie = key + "=" + value + expires + "; path=/";
+        }
+        
+        /**
+         * Returns contents of cookie
+         * @param  key       The key or identifier for the store
+         */
+        
+        function readCookie(key) {
+            var nameEQ = key + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0, max = ca.length; i < max; i++) {
+                var c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+        
+    };
+
+    /**
+     * Number.prototype.format(n, x)
+     * 
+     * @param integer n: length of decimal
+     * @param integer x: length of sections
+     */
+    Number.prototype.format = function(n, x) {
+        var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
+        return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
+    };
+
     var GC = new GameController();
     createjs.MotionGuidePlugin.install();
 
@@ -64,142 +202,13 @@ $(document).ready(function() {
     })
 
 
-    /*
-     * ColorLuminance("#69c", 0);       // returns "#6699cc"
-     * ColorLuminance("6699CC", 0.2);  // "#7ab8f5" - 20% lighter
-     * ColorLuminance("69C", -0.5);    // "#334d66" - 50% darker
-     * ColorLuminance("000", 1);       // "#000000" - true black cannot be made lighter!
-     */
-    function ColorLuminance(hex, lum) {
-
-        // validate hex string
-        hex = String(hex).replace(/[^0-9a-f]/gi, '');
-        if (hex.length < 6) {
-            hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+    $(window).resize(function() {
+        if (GC.running) {
+            GC.finish();
+            hideall();
+            $("#page_menu").removeClass("hidden");
         }
-        lum = lum || 0;
-
-        // convert to decimal and change luminosity
-        var rgb = "#", c, i;
-        for (i = 0; i < 3; i++) {
-            c = parseInt(hex.substr(i*2,2), 16);
-            c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
-            rgb += ("00"+c).substr(c.length);
-        }
-
-        return rgb;
-    }
-
-    /**
-     * Number.prototype.format(n, x)
-     * 
-     * @param integer n: length of decimal
-     * @param integer x: length of sections
-     */
-    Number.prototype.format = function(n, x) {
-        var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
-        return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
-    };
-
-    /**
-     * Simple localStorage with Cookie Fallback
-     * v.1.0.0
-     *
-     * USAGE:
-     * ----------------------------------------
-     * Set New / Modify:
-     *   store('my_key', 'some_value');
-     *
-     * Retrieve:
-     *   store('my_key');
-     *
-     * Delete / Remove:
-     *   store('my_key', null);
-     */  
-    var store = function store(key, value) {
-         
-            var lsSupport = false;
-            
-            // Check for native support
-            if (localStorage) {
-                lsSupport = true;
-            }
-            
-            // If value is detected, set new or modify store
-            if (typeof value !== "undefined" && value !== null) {
-                // Convert object values to JSON
-                if ( typeof value === 'object' ) {
-                    value = JSON.stringify(value);
-                }
-                // Set the store
-                if (lsSupport) { // Native support
-                    localStorage.setItem(key, value);
-                } else { // Use Cookie
-                    createCookie(key, value, 30);
-                }
-            }
-            
-            // No value supplied, return value
-            if (typeof value === "undefined") {
-                // Get value
-                if (lsSupport) { // Native support
-                    data = localStorage.getItem(key);
-                } else { // Use cookie 
-                    data = readCookie(key);
-                }
-                
-                // Try to parse JSON...
-                try {
-                   data = JSON.parse(data);
-                }
-                catch(e) {
-                   data = data;
-                }
-                
-                return data;
-                
-            }
-            
-            // Null specified, remove store
-            if (value === null) {
-                if (lsSupport) { // Native support
-                    localStorage.removeItem(key);
-                } else { // Use cookie
-                    createCookie(key, '', -1);
-                }
-            }
-            
-            /**
-             * Creates new cookie or removes cookie with negative expiration
-             * @param  key       The key or identifier for the store
-             * @param  value     Contents of the store
-             * @param  exp       Expiration - creation defaults to 30 days
-             */
-            
-            function createCookie(key, value, exp) {
-                var date = new Date();
-                date.setTime(date.getTime() + (exp * 24 * 60 * 60 * 1000));
-                var expires = "; expires=" + date.toGMTString();
-                document.cookie = key + "=" + value + expires + "; path=/";
-            }
-            
-            /**
-             * Returns contents of cookie
-             * @param  key       The key or identifier for the store
-             */
-            
-            function readCookie(key) {
-                var nameEQ = key + "=";
-                var ca = document.cookie.split(';');
-                for (var i = 0, max = ca.length; i < max; i++) {
-                    var c = ca[i];
-                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-                }
-                return null;
-            }
-            
-        };
+    });
 
     function GameController() {
         var self = this;
@@ -209,16 +218,16 @@ $(document).ready(function() {
         this.paused = false;
         this.started = false;
 
+        if (!store('cirlce_scr_1')) {
+            store('cirlce_scr_1', 0);
+            store('cirlce_scr_2', 0);
+            store('cirlce_scr_3', 0);
+        }
+
         this.start = function() {
             
             this.running = true;
             this.started = false;
-
-            if (!store('cirlce_scr_1')) {
-                store('cirlce_scr_1', 0);
-                store('cirlce_scr_2', 0);
-                store('cirlce_scr_3', 0);
-            }
 
             var canvasW = 640,
                 canvasH = 480;
