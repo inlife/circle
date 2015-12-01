@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'proxima_nova_rgregular';
+    src: url('fonts/proximanova-regular-webfont.eot');
+    src: url('fonts/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/proximanova-regular-webfont.woff2') format('woff2'),
+         url('fonts/proximanova-regular-webfont.woff') format('woff'),
+         url('fonts/proximanova-regular-webfont.ttf') format('truetype'),
+         url('fonts/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'proxima_nova_rgbold';
+    src: url('fonts/proximanova-bold-webfont.eot');
+    src: url('fonts/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/proximanova-bold-webfont.woff2') format('woff2'),
+         url('fonts/proximanova-bold-webfont.woff') format('woff'),
+         url('fonts/proximanova-bold-webfont.ttf') format('truetype'),
+         url('fonts/proximanova-bold-webfont.svg#proxima_nova_rgbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    background-color: #fff;
+
+    font-family: "proxima_nova_rgregular";
+    color: #818181;
+    font-size: 60px;
+
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    transform: translate3d(0,0,0);
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+canvas {
+    display: block;
+}
+
+html {
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 40px;
+    }
+}
+
+.container {
+    margin: 5% 10%;
+}
+
+h1, h2 {
+    margin: 0;
+    font-size: 2em;
+    font-family: "proxima_nova_rgbold";
+    font-weight: normal;
+} 
+
+h2 {
+    margin-top: 10%;
+    margin-bottom: 50px; 
+    font-size: 1.5em;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin-top: 6px;
+}
+
+a {
+    text-decoration: none;
+    color: #6BA0E1;
+}
+
+a:hover, a:active {
+    color: #A0C3EC;
+}
+
+.hidden {
+    display: none;
+}
+
+.inline-controls a:first-child {
+    margin-right: 50px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.canvas_button {
+    right: 0;
+    position: absolute;
+    margin: 2.5% 5%;
+    font-size: .75em;
+}
