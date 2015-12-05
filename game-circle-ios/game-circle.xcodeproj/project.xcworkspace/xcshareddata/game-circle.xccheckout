@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>05894924-8A8F-4FCA-9CE3-B0F5311A36C4</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>game-circle</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>262F48BF65C4D2C07DFFE62908EE488EC1B8CBEB</key>
 		<string>bitbucket.org:1project/game-circles.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>game-circle/game-circle.xcodeproj/project.xcworkspace</string>
+	<string>game-circle-ios/game-circle.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>262F48BF65C4D2C07DFFE62908EE488EC1B8CBEB</key>

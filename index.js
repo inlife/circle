@@ -212,6 +212,16 @@ $(document).ready(function() {
     })
 
 
+    window.sendPause = function() {
+        $(".button_menu").click();
+        return 123;
+    }
+
+    window.sendResume = function() {
+        
+    }
+
+
     $(window).resize(function() {
         if (GC.running) {
             GC.finish();
@@ -269,7 +279,7 @@ $(document).ready(function() {
             createjs.Touch.enable(stage);
             createjs.Ticker.setFPS(60);
 
-            var colors = ["#E16B6B", "#98E16B", "#6BA0E1", "#E1B76B", "#9A6BE1", "#6BE1D9"]
+            var colors = ["#E16B6B", "#98E16B", "#6BA0E1", "#E1B76B", "#9A6BE1", "#6BE1D9"];
             var color = colors[Math.floor(Math.random() * colors.length)];
             var phrases = [
                 "dont let go", 
@@ -293,6 +303,7 @@ $(document).ready(function() {
             var debug = false;
             var difficultyIncreaseModifier = 1250;
             var timeMultiplier = 125;
+            var gameOverSize = 20;
 
             // circle
             var dashed = function(color) {
@@ -468,7 +479,7 @@ $(document).ready(function() {
                     }
 
                     // check for gameover
-                    if (circleSize * modifier < 10) {
+                    if (circleSize * modifier < gameOverSize) {
 
                         GC.finish();
                         hideall();

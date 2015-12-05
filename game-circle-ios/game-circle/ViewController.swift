@@ -7,18 +7,27 @@
 //
 
 import UIKit
+import WebKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var webView: UIWebView!
+    static let webView: WKWebView = WKWebView(frame: CGRectZero);
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
+        view.addSubview(ViewController.webView)
+      
+        ViewController.webView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        let height = NSLayoutConstraint(item: ViewController.webView, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: 0)
+        let width = NSLayoutConstraint(item: ViewController.webView, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1, constant: 0)
+        view.addConstraints([height, width])
+        
         let requestURL = NSBundle.mainBundle().URLForResource("index", withExtension:"html")
         let request = NSURLRequest(URL: requestURL!)
-        webView.scrollView.bounces = false;
-        webView.loadRequest(request)
+        ViewController.webView.scrollView.bounces = false;
+        ViewController.webView.loadRequest(request)
     }
     
     override func prefersStatusBarHidden() -> Bool {

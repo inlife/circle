@@ -80,8 +80,7 @@ h1, h2 {
 } 
 
 h2 {
-    margin-top: 10%;
-    margin-bottom: 50px; 
+    margin-bottom: 25px; 
     font-size: 1em;
 }
 
@@ -117,7 +116,7 @@ a:hover, a:active {
 }
 
 .centered {
-    text-align: center;
+
 }
 
 .canvas_button {
