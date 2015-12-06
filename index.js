@@ -1,11 +1,24 @@
+// window.addEventListener("load", function() {
+//     function onTouchPreventDefault(event) { event.preventDefault(); };
+//     document.addEventListener("touchmove", onTouchPreventDefault, false);
+//     document.addEventListener("touchstart", onTouchPreventDefault, false);
+// }, false);
+
 $(document).ready(function() {
+
+    function touchHandlerDummy(e) {
+        e.preventDefault();
+        return false;
+    }
+    document.addEventListener("touchstart", touchHandlerDummy, false);
+    document.addEventListener("touchmove", touchHandlerDummy, false);
+    document.addEventListener("touchend", touchHandlerDummy, false);
 
     if (typeof console == "undefined") {
         window.console = {
             log: function () {}
         };
     }
-
 
     $(function() {
         FastClick.attach(document.body);
@@ -150,71 +163,12 @@ $(document).ready(function() {
     };
 
     var GC = new GameController();
-    createjs.MotionGuidePlugin.install();
-
-    function hideall() {
-        function hideifnot(item) {
-            if (!$(item).hasClass("hidden")) $(item).addClass("hidden");
-            return this;
-        }
-
-        hideifnot("#page_score");
-        hideifnot("#page_menu");
-        hideifnot("#page_game");
-        hideifnot("#page_highscores");
-        hideifnot("#page_about");
-    }
-
-    $(".button_menu").click(function() {
-        console.log("btn:menu");
-        hideall();
-        if (GC.running) {
-            $(".button_play").text("Resume");
-            GC.pause();
-        }
-        $("#page_menu").removeClass("hidden");
-    });
-
-    $(".button_play").click(function() {
-        console.log("btn:play");
-        hideall();
-        $("#page_game").removeClass("hidden");
-        if (!GC.running && !GC.paused) {
-            GC.start();
-        } else if (GC.running && GC.paused) {
-            $(".button_play").text("Play");
-            GC.resume();
-        }
-    });
-
-    $(".button_retry").click(function() {
-        console.log("btn:retry");
-        hideall();
-        $("#page_game").removeClass("hidden");
-        if (!GC.running && !GC.paused) {
-            GC.start();
-        }
-    });
-
-    $(".button_highscores").click(function() {
-        console.log("btn:score");
-        hideall();
-        $("#scr1").text(store("cirlce_scr_1"));
-        $("#scr2").text(store("cirlce_scr_2"));
-        $("#scr3").text(store("cirlce_scr_3"));
-        $("#page_highscores").removeClass("hidden");
-    });
-
-    $(".button_about").click(function() {
-        console.log("btn:about");
-        hideall();
-        $("#page_about").removeClass("hidden");
-    })
-
+    GC.start();
 
     window.sendPause = function() {
-        $(".button_menu").click();
-        return 123;
+        if (GC.running && GC.started && !GC.paused) {
+            GC.pause();
+        }
     }
 
     window.sendResume = function() {
@@ -225,8 +179,6 @@ $(document).ready(function() {
     $(window).resize(function() {
         if (GC.running) {
             GC.finish();
-            hideall();
-            $("#page_menu").removeClass("hidden");
         }
     });
 
@@ -238,28 +190,47 @@ $(document).ready(function() {
         this.paused = false;
         this.started = false;
 
-        if (!store('cirlce_scr_1')) {
-            store('cirlce_scr_1', 0);
-            store('cirlce_scr_2', 0);
-            store('cirlce_scr_3', 0);
+
+        var canvasW = 640,
+            canvasH = 480;
+
+        canvas = document.getElementById("game_canvas");
+        canvas.width = document.body.clientWidth; //document.width is obsolete
+        canvas.height = document.body.clientHeight; //document.height is obsolete
+        canvasW = canvas.width;
+        canvasH = canvas.height;
+
+        if (!store('circle_best_score')) {
+            store('circle_best_score', 1);
         }
+
+        var swipeImg = new createjs.Bitmap("swipe.png");
+        var pauseBtn = new createjs.Bitmap("pause.png");
+
+        var whitePlane = new createjs.Shape();
+        whitePlane.graphics.beginFill("#fff").rect(0, 0, canvasW, canvasH);
+        whitePlane.alpha = 0;
+
+        // hitarea for pause button
+        var hit = new createjs.Shape();
+        hit.graphics.beginFill("#000").rect(50, 0, 100, 60);
+        pauseBtn.hitArea = hit;
+
+        pauseBtn.on("click", function(evt) {
+            if (GC.running && GC.started && !GC.paused) {
+                GC.pause();
+            }
+        });
 
         this.start = function() {
             
             this.running = true;
             this.started = false;
 
-            var canvasW = 640,
-                canvasH = 480;
-
-            canvas = document.getElementById("game_canvas");
-            canvas.width = document.body.clientWidth; //document.width is obsolete
-            canvas.height = document.body.clientHeight; //document.height is obsolete
-            canvasW = canvas.width;
-            canvasH = canvas.height;
-
             var stage = new createjs.Stage("game_canvas");
             var modifier = Math.sqrt(Math.sqrt( canvasW / 480 ) * Math.sqrt( canvasH / 720 ));
+            
+            console.log("modifier:", modifier);
 
             if (window.devicePixelRatio) {
                 // grab the width and height from canvas
@@ -279,12 +250,14 @@ $(document).ready(function() {
             createjs.Touch.enable(stage);
             createjs.Ticker.setFPS(60);
 
-            var colors = ["#E16B6B", "#98E16B", "#6BA0E1", "#E1B76B", "#9A6BE1", "#6BE1D9"];
+            var colors = ["#FFA69E", "#98D2EB", "#AFE0CE"];
             var color = colors[Math.floor(Math.random() * colors.length)];
             var phrases = [
+                "keep circle over the target",
                 "dont let go", 
                 "never give up" , 
                 "just do it",
+                "your fingers are enemies",
                 "dont let your dreams be dreams",
                 "10/10",
                 "wow",
@@ -298,58 +271,159 @@ $(document).ready(function() {
             ];
             var scoreCount = 0;
             var difficulty = 1;
-            var circleSize = 75;
+            var circleSize = 95;
             var maxDist = distance(0, 0, canvasW, canvasH);
             var debug = false;
             var difficultyIncreaseModifier = 1250;
             var timeMultiplier = 125;
             var gameOverSize = 20;
+            var textAnimTime = 250;
+            swipeImg.alpha = 1;
+            pauseBtn.alpha = 0;
+
+
+            stage.alpha = 0;
+            createjs.Tween.get(stage).to({ alpha: 1 }, 750);
+
+
+            // texts
+            var score = function() {
+                var size = 75;
+
+                var score = new createjs.Text();
+                score.font = (size * modifier) + "px Avenir-Black";
+                score.color = "#828A95";
+                score.text = "circle";
+                var scorebounds = score.getBounds();
+                score.x = canvasW / 2 - (scorebounds.width) / 2;
+                score.y = 125 * modifier;
+                stage.addChild(score);
+
+                this.updateS = function(text) {
+                    score.text = text;
+                    var scorebounds = score.getBounds();
+                    score.x = canvasW / 2 - scorebounds.width / 2;
+                };
+
+                this.alphaS = function(val, fast) {
+                    if (fast) {
+                        score.alpha = val;
+                    } else {
+                        createjs.Tween.get(score).to({ alpha: val }, textAnimTime);
+                    }
+                };
+
+                return this;
+            }();
+
+            var bestScore = function() {
+                var size = 19;
+
+                var score = new createjs.Text();
+                score.font = (size * modifier) + "px Avenir-Black";
+                score.color = "#FFA69E";
+                score.text = " ";
+                var scorebounds = score.getBounds();
+                score.x = canvasW / 2 - (scorebounds.width) / 2;
+                score.y = 210 * modifier;
+                stage.addChild(score);
+
+                this.updateBS = function(text) {
+                    score.text = text;
+                    var scorebounds = score.getBounds();
+                    score.x = canvasW / 2 - scorebounds.width / 2;
+                };
+
+                this.alphaBS = function(val, fast) {
+                    if (fast) {
+                        score.alpha = val;
+                    } else {
+                        createjs.Tween.get(score).to({ alpha: val }, textAnimTime);
+                    }
+                };
+
+                return this;
+            }();
+
 
             // circle
             var dashed = function(color) {
 
-                var dashed = new createjs.Shape();
+                var dashedS = new createjs.Shape();
+                var dashedC = new createjs.Shape();
 
-                dashed.graphics
+                dashedS.graphics
                     .beginStroke(color)
-                    .setStrokeDash([5, 5], 0)
-                    .beginFill( ColorLuminance(color, 1.1) )
+                    .setStrokeDash([3, 3], 0)
+                    .setStrokeStyle(2)
                     .drawCircle(0, 0, circleSize * modifier);
 
-                dashed.x = canvasW / 2;
-                dashed.y = canvasH / 2;
 
-                stage.addChild(dashed);
+                dashedC.graphics
+                    .beginFill( color )
+                    .drawCircle(0, 0, circleSize * modifier);
 
-                function move(obj) {
-                    var doublesize = circleSize * 2;
-                    var newx = Math.random() * (canvasW - doublesize) + circleSize;
-                    var newy = Math.random() * (canvasH - doublesize) + circleSize;
+                dashedS.x = canvasW / 2;
+                dashedS.y = canvasH / 2 + 35 * modifier;
+                dashedC.x = canvasW / 2;
+                dashedC.y = canvasH / 2 + 35 * modifier;
 
-                    var newdist = distance(dashed.x, dashed.y, newx, newy);
+                dashedS.alpha = .9;
+                dashedC.alpha = .2;
+
+                stage.addChild(dashedS);
+                stage.addChild(dashedC);
+
+                function move(obj1, obj2) {
+                    var doublesize = circleSize * modifier * 2;
+                    // var newx = Math.random() * (canvasW - doublesize) + circleSize * modifier;
+                    // var newy = Math.random() * (canvasH - doublesize) + circleSize * modifier;
+
+                    var newx = Math.random() * canvasW;
+                    var newy = Math.random() * canvasH;
+
+                    var newdist = distance(dashedS.x, dashedS.y, newx, newy);
                     var time = Math.sqrt(newdist) / difficulty * timeMultiplier;
 
-                    createjs.Tween.get(obj)
+                    createjs.Tween.get(obj1)
                         .to({ x: newx, y: newy }, time, createjs.Ease.quadInOut)
                         .call(function() {
-                            move(obj);
+                            move(obj1, obj2);
                         });
+
+                    createjs.Tween.get(obj2)
+                        .to({ x: newx, y: newy }, time, createjs.Ease.quadInOut);
                 };
 
                 this.dashedBump = function() {
-                    move(dashed);
+                    move(dashedS, dashedC);
                 };
                 
                 this.getDCenter = function() {
-                    return { x: dashed.x, y: dashed.y };
+                    return { x: dashedS.x, y: dashedS.y };
+                };
+
+                this.alphaD = function(val, fase) {
+                    if (fast) {
+                        dashedS.alpha = val;
+                        dashedC.alpha = ((val > 0.2) ? 0.2 : val);
+                    } else {
+                        createjs.Tween.get(dashedS).to({ alpha: val }, textAnimTime);
+                        createjs.Tween.get(dashedC).to({ alpha: ((val > 0.2) ? 0.2 : val) }, textAnimTime);
+                    }
                 };
 
                 this.resizeD = function() {
-                    dashed.graphics
+                    dashedS.graphics
                         .clear()
                         .beginStroke(color)
-                        .setStrokeDash([5, 5], 0)
-                        .beginFill( ColorLuminance(color, 1.1) )
+                        .setStrokeDash([3, 3], 0)
+                        .setStrokeStyle(2)
+                        .drawCircle(0, 0, circleSize * modifier);
+
+                    dashedC.graphics
+                        .clear()
+                        .beginFill( color )
                         .drawCircle(0, 0, circleSize * modifier);
 
                     stage.update();
@@ -367,19 +441,33 @@ $(document).ready(function() {
                     .drawCircle(0, 0, circleSize * modifier);
 
                 circle.x = canvasW / 2;
-                circle.y = canvasH / 2;
+                circle.y = canvasH / 2 + 45 * modifier;
 
+                circle.alpha = .9;
 
                 circle.on("pressmove", function(evt) {
-                    evt.target.x = evt.stageX / stage.scaleX;
-                    evt.target.y = evt.stageY / stage.scaleY;
+                    if (!self.paused) {
+                        evt.target.x = evt.stageX / stage.scaleX;
+                        evt.target.y = evt.stageY / stage.scaleY;
+                    }
                 });
 
                 circle.on("mousedown", function(evt) {
                     if (!self.started) {
                         self.started = true;
+                        swipeImg.alpha = 0;
+                        pauseBtn.alpha = 1;
+
                         dashed.dashedBump();
+
                         setRandomPhrase(0);
+
+                        message.alphaM(0.5);
+                        score.alphaS(0.5);
+                        bestScore.alphaBS(0.5);
+                    }
+                    if (self.paused) {
+                        self.resume();
                     }
                 });
 
@@ -387,6 +475,14 @@ $(document).ready(function() {
 
                 this.getCenter = function() {
                     return { x: circle.x, y: circle.y };
+                };
+
+                this.alphaC = function(val, fast) {
+                    if (fast) {
+                        circle.alpha = val;
+                    } else {
+                        createjs.Tween.get(circle).to({ alpha: val }, textAnimTime); 
+                    }
                 };
 
                 this.resizeC = function() {
@@ -400,41 +496,38 @@ $(document).ready(function() {
 
                 return this;
             }(color);
-           
-
-            // texts
-            var score = function() {
-                var size = 45;
-
-                var score = new createjs.Text();
-                score.font = (size * modifier) + "px proxima_nova_rgregular";
-                score.color = "#818181";
-                score.text = "0";
-                var scorebounds = score.getBounds();
-                score.x = canvasW / 2 - scorebounds.width / 2;
-                score.y = 25 * modifier;
-                stage.addChild(score);
-
-                this.updateS = function(text) {
-                    score.text = text;
-                    var scorebounds = score.getBounds();
-                    score.x = canvasW / 2 - scorebounds.width / 2;
-                };
-
-                return this;
-            }();
+            
 
             var message = function() {
-                var size = 25;
+                var size = 28;
 
                 var message = new createjs.Text();
-                message.font = (size * modifier) + "px proxima_nova_rgregular";
-                message.color = "#818181";
-                message.text = "touch to start";
+                message.font = (size * modifier) + "px Avenir-Roman";
+                message.color = "#828A95";
+                message.text = "drag circle to start";
                 var msgbounds = message.getBounds();
-                message.x = canvasW / 2 - msgbounds.width / 2;
-                message.y = canvasH - 50 * modifier;
+                message.x = canvasW / 2 - msgbounds.width / 2 - 50 + 35 * modifier;
+                message.y = canvasH - 100 * modifier;
+
+                swipeImg.scaleX = 0.5 * modifier;
+                swipeImg.scaleY = 0.5 * modifier;
+
+                pauseBtn.scaleX = 0.5 * modifier;
+                pauseBtn.scaleY = 0.5 * modifier;
+
+                swipeImg.x = canvasW / 2 + msgbounds.width / 2;
+                swipeImg.y = canvasH - 95 * modifier;
+
+                pauseBtn.x = canvasW / 2 - 50 * modifier;
+                pauseBtn.y = canvasH - 60 * modifier;
+
+                stage.addChild(whitePlane);
+
                 stage.addChild(message);
+                stage.addChild(swipeImg);
+
+                stage.addChild(pauseBtn);
+
 
                 this.update = function(text) {
                     message.text = text;
@@ -442,9 +535,13 @@ $(document).ready(function() {
                     message.x = canvasW / 2 - msgbounds.width / 2;
                 };
 
+                this.alphaM = function(val) {
+                    createjs.Tween.get(message).to({ alpha: val }, textAnimTime);
+                };
+
                 return this;
             }();
-            
+
 
             // math
             function distance(x1, y1, x2, y2) {
@@ -481,22 +578,13 @@ $(document).ready(function() {
                     // check for gameover
                     if (circleSize * modifier < gameOverSize) {
 
-                        GC.finish();
-                        hideall();
-                        $("#score").text("score: " + formattedScore);
-                        $("#page_score").removeClass("hidden");
+                        self.finish();
 
-                        // save highscores
-                        if (store("cirlce_scr_1") < formattedScore) {
-                            store("cirlce_scr_3", store("cirlce_scr_2"));
-                            store("cirlce_scr_2", store("cirlce_scr_1"));
-                            store("cirlce_scr_1", formattedScore);
-                        } else if (store("cirlce_scr_2") < formattedScore) {
-                            store("cirlce_scr_3", store("cirlce_scr_2"));
-                            store("cirlce_scr_2", formattedScore);
-                        } else if (store("cirlce_scr_3") < formattedScore) {
-                            store("cirlce_scr_3", formattedScore);
+                        if (Number(store("circle_best_score")) < Math.round(scoreCount)) {
+                            store("circle_best_score", Math.round(scoreCount));
+                            bestScore.updateBS("highest score is " + Math.round(scoreCount).format());
                         }
+
                     } else {
                         // only update sizes
                         circle.resizeC();
@@ -504,7 +592,6 @@ $(document).ready(function() {
                     }
                 }
             }, 100);
-
 
             // phrases
             var setRandomPhrase = function(forced) {
@@ -515,14 +602,27 @@ $(document).ready(function() {
                 message.update(phrase);
             };
 
+            self.setRandomPhrase = setRandomPhrase;
+            self.setPhrase = function(phrase) {
+                message.update(phrase);
+            };
+
+            var count = 0;
             this.prhaseClock = setInterval(function() {
                 if (!self.paused && self.started) {
-                    setRandomPhrase();
+                    count++;
+                    if (count >= 10) {
+                        count = 0;
+                        setRandomPhrase();
+                    }
                 }
-            }, 10000);
+            }, 1000);
             
             //setRandomPhrase();
 
+            if (store("circle_best_score") > 1) {
+                bestScore.updateBS("highest score is " + Number(store("circle_best_score")).format());
+            }
 
             // ticker
             function tick(event) {
@@ -532,7 +632,29 @@ $(document).ready(function() {
             createjs.Ticker.on("tick", tick);
 
             this.stage = stage;
+
+            this.pause = function() {
+                if (!this.paused) {
+                    this.paused = true;
+                    createjs.Ticker.paused = true;
+                    this.setPhrase("touch circle to resume");
+                    whitePlane.alpha = .7;
+                }
+            };
+
+            this.resume = function() {
+                if (this.paused) {
+                    this.paused = false;
+                    createjs.Ticker.paused = false;
+                    this.setRandomPhrase();
+                    // whitePlane.alpha = 0;
+                    createjs.Tween.get(whitePlane).to({ alpha: 0 }, textAnimTime);
+                }
+            };
         };
+
+        this.setPhrase = function() {};
+        this.setRandomPhrase = function() {};
 
         this.finish = function() {
             this.running = false;
@@ -542,21 +664,7 @@ $(document).ready(function() {
             createjs.Tween.removeAllTweens();
             clearInterval(this.prhaseClock);
             clearInterval(this.scoreClock);
-            $(".button_menu").click();
-        };
-
-        this.pause = function() {
-            if (!this.paused) {
-                this.paused = true;
-                createjs.Ticker.paused = true;
-            }
-        };
-
-        this.resume = function() {
-            if (this.paused) {
-                this.paused = false;
-                createjs.Ticker.paused = false;
-            }
+            self.start();
         };
     }
 });

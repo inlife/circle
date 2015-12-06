@@ -1,26 +1,24 @@
 @font-face {
-    font-family: 'proxima_nova_rgregular';
-    src: url('fonts/proximanova-regular-webfont.eot');
-    src: url('fonts/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/proximanova-regular-webfont.woff2') format('woff2'),
-         url('fonts/proximanova-regular-webfont.woff') format('woff'),
-         url('fonts/proximanova-regular-webfont.ttf') format('truetype'),
-         url('fonts/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Avenir-Black';
+  src: url('fonts/Avenir-Black.eot?#iefix') format('embedded-opentype'),  
+       url('fonts/Avenir-Black.woff') format('woff'), 
+       url('fonts/Avenir-Black.ttf')  format('truetype'), 
+       url('fonts/Avenir-Black.svg#Avenir-Black') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
+
 @font-face {
-    font-family: 'proxima_nova_rgbold';
-    src: url('fonts/proximanova-bold-webfont.eot');
-    src: url('fonts/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/proximanova-bold-webfont.woff2') format('woff2'),
-         url('fonts/proximanova-bold-webfont.woff') format('woff'),
-         url('fonts/proximanova-bold-webfont.ttf') format('truetype'),
-         url('fonts/proximanova-bold-webfont.svg#proxima_nova_rgbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Avenir-Roman';
+  src: url('fonts/Avenir-Roman.eot?#iefix') format('embedded-opentype'),  
+       url('fonts/Avenir-Roman.woff') format('woff'), 
+       url('fonts/Avenir-Roman.ttf')  format('truetype'), 
+       url('fonts/Avenir-Roman.svg#Avenir-Roman') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
+
 
 html, body {
     margin: 0;
@@ -66,62 +64,4 @@ html {
     body {
         font-size: 40px;
     }
-}
-
-.container {
-    margin: 5% 10%;
-}
-
-h1, h2 {
-    margin: 0;
-    font-size: 2em;
-    font-family: "proxima_nova_rgbold";
-    font-weight: normal;
-} 
-
-h2 {
-    margin-bottom: 25px; 
-    font-size: 1em;
-}
-
-.menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.menu li {
-    margin-top: 6px;
-}
-
-a {
-    text-decoration: none;
-    color: #6BA0E1;
-}
-
-a:hover, a:active {
-    color: #A0C3EC;
-}
-
-.hidden {
-    display: none;
-}
-
-.inline-controls a:first-child {
-    margin-right: 50px;
-}
-
-.inline-controls a {
-    font-size: 1em;
-}
-
-.centered {
-
-}
-
-.canvas_button {
-    right: 0;
-    position: absolute;
-    margin: 2.5% 5%;
-    font-size: .75em;
 }
