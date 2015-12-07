@@ -268,7 +268,6 @@ $(document).ready(function() {
                 "never give up" , 
                 "just do it",
                 "your fingers are enemies",
-                "dont let your dreams be dreams",
                 "10/10",
                 "wow",
                 "amazing",
@@ -281,13 +280,15 @@ $(document).ready(function() {
             ];
             var scoreCount = 0;
             var difficulty = 1;
-            var circleSize = 95;
+            var defaultCircleSize = 95;
+            var circleSize = defaultCircleSize;
             var maxDist = distance(0, 0, canvasW, canvasH);
             var debug = false;
             var difficultyIncreaseModifier = 1250;
             var timeMultiplier = 125;
-            var gameOverSize = 20;
+            var gameOverSize = 2;
             var textAnimTime = 250;
+            var circleDescreasingTime = 100;
             swipeImg.alpha = 1;
             pauseBtn.alpha = 0;
 
@@ -435,17 +436,8 @@ $(document).ready(function() {
                 };
 
                 this.resizeD = function() {
-                    dashedS.graphics
-                        .clear()
-                        .beginStroke(color)
-                        .setStrokeDash([3, 3], 0)
-                        .setStrokeStyle(2)
-                        .drawCircle(0, 0, circleSize * modifier);
-
-                    dashedC.graphics
-                        .clear()
-                        .beginFill( color )
-                        .drawCircle(0, 0, circleSize * modifier);
+                    createjs.Tween.get(dashedS).to({ scaleX: circleSize / defaultCircleSize, scaleY: circleSize / defaultCircleSize }, circleDescreasingTime);
+                    createjs.Tween.get(dashedC).to({ scaleX: circleSize / defaultCircleSize, scaleY: circleSize / defaultCircleSize }, circleDescreasingTime);
 
                     stage.update();
                 };
@@ -507,11 +499,7 @@ $(document).ready(function() {
                 };
 
                 this.resizeC = function() {
-                    circle.graphics
-                        .clear()
-                        .beginFill(color)
-                        .drawCircle(0, 0, circleSize * modifier);
-
+                    createjs.Tween.get(circle).to({ scaleX: circleSize / defaultCircleSize, scaleY: circleSize / defaultCircleSize }, circleDescreasingTime);
                     stage.update();
                 };
 
@@ -592,14 +580,16 @@ $(document).ready(function() {
                     }
 
                     // calculate score
+                    
                     var newScore = Math.max(0, 2.5 - normalized) / 2.5;
                     difficulty += newScore / difficultyIncreaseModifier;
 
-                    scoreCount += Math.pow(newScore * difficulty, 3 );
-                    var formattedScore = Math.round(scoreCount).format();
+                    if (dist < circleSize * modifier * 2) {
+                        scoreCount += Math.pow(newScore * difficulty, 3 );
+                        var formattedScore = Math.round(scoreCount).format();
 
-                    score.updateS(formattedScore);
-
+                        score.updateS(formattedScore);
+                    }
                     // update circle size
                     if (!debug) {
                         circleSize -= normalized;
