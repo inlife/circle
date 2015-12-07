@@ -477,7 +477,7 @@ $(document).ready(function() {
                     if (!self.started) {
                         self.started = true;
                         createjs.Tween.get(swipeImg).to({ alpha: 0 }, textAnimTime); 
-                        createjs.Tween.get(pauseBtn).to({ alpha: 1 }, textAnimTime * 2); 
+                        createjs.Tween.get(pauseBtn).to({ alpha: 1 }, textAnimTime); 
 
                         dashed.dashedBump();
 
@@ -670,6 +670,7 @@ $(document).ready(function() {
             this.pause = function() {
                 if (!this.paused) {
                     this.paused = true;
+                    pauseBtn.alpha = 0;
                     createjs.Ticker.paused = true;
                     this.setPhrase("touch circle to resume", true);
                     whitePlane.alpha = .7;
@@ -682,6 +683,7 @@ $(document).ready(function() {
                     createjs.Ticker.paused = false;
                     this.setRandomPhrase();
                     // whitePlane.alpha = 0;
+                    createjs.Tween.get(pauseBtn).to({ alpha: 1 }, textAnimTime);
                     createjs.Tween.get(whitePlane).to({ alpha: 0 }, textAnimTime);
                 }
             };
