@@ -262,8 +262,8 @@ $(document).ready(function() {
 
             var colors = ["#FFA69E", "#98D2EB", "#AFE0CE"];
             var color = colors[Math.floor(Math.random() * colors.length)];
+            var lastPhraseId = -1;
             var phrases = [
-                "keep circle over the target",
                 "dont let go", 
                 "never give up" , 
                 "just do it",
@@ -481,7 +481,7 @@ $(document).ready(function() {
 
                         dashed.dashedBump();
 
-                        setRandomPhrase(0);
+                        self.setPhrase("keep circle over the target");
 
                         // message.alphaM(0.5);
                         score.alphaS(0.5);
@@ -628,6 +628,10 @@ $(document).ready(function() {
                 var phrase = phrases[ Math.floor( Math.random() * phrases.length ) ];
                 if (typeof forced !== "undefined" && forced < phrases.length) {
                     phrase = phrases[forced];
+                } else if (lastPhraseId == phrases.indexOf(phrase)) {
+                    return setRandomPhrase();
+                } else {
+                    lastPhraseId = phrases.indexOf(phrase);
                 }
                 message.update(phrase);
             };
