@@ -20,6 +20,7 @@
     "EaselJS": "CreateJS/EaselJS#~0.8.1",
     "fastclick": "ftlabs/fastclick#~1.0.6",
     "jquery": "~2.1.4",
-    "TweenJS": "CreateJS/TweenJS#~0.6.1"
+    "TweenJS": "CreateJS/TweenJS#~0.6.1",
+    "fontfaceobserver": "~1.6.1"
   }
 }
