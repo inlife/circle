@@ -212,8 +212,8 @@ $(document).ready(function() {
             store('circle_best_score', 1);
         }
 
-        var swipeImg = new createjs.Bitmap("swipe.png");
-        var pauseBtn = new createjs.Bitmap("pause.png");
+        var swipeImg = new createjs.Bitmap("assets/swipe.png");
+        var pauseBtn = new createjs.Bitmap("assets/pause.png");
 
         var whitePlane = new createjs.Shape();
         whitePlane.graphics.beginFill("#fff").rect(0, 0, canvasW, canvasH);
@@ -393,17 +393,13 @@ $(document).ready(function() {
                     if (bumped) {
                         var newx = Math.random() * (canvasW - 100) + 50;
                         var newy = Math.random() * (canvasH - 100) + 50;
-
-                        var newdist = distance(dashedS.x, dashedS.y, newx, newy);
-                        var time = Math.sqrt(newdist) / difficulty * timeMultiplier;
                     } else {
                         var newx = Math.random() * 30 + canvasW / 2 - 15;
                         var newy = Math.random() * 30 + canvasH / 2 + 45 * modifier - 15;
-
-                        var newdist = distance(dashedS.x, dashedS.y, newx, newy);
-                        var time = Math.sqrt(newdist) * 3 * timeMultiplier;
                     }
 
+                    var newdist = distance(dashedS.x, dashedS.y, newx, newy);
+                    var time = Math.sqrt(newdist) / difficulty * timeMultiplier;
 
                     createjs.Tween.get(obj1)
                         .to({ x: newx, y: newy }, time, createjs.Ease.quadInOut)
