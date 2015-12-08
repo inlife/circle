@@ -7,20 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D24FB3EA1C15EA730041E18B /* fontfaceobserver.js in Resources */ = {isa = PBXBuildFile; fileRef = D24FB3E91C15EA730041E18B /* fontfaceobserver.js */; };
-		D24FB3ED1C15EAFA0041E18B /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = D24FB3EB1C15EAFA0041E18B /* pause.png */; };
-		D24FB3EE1C15EAFA0041E18B /* swipe.png in Resources */ = {isa = PBXBuildFile; fileRef = D24FB3EC1C15EAFA0041E18B /* swipe.png */; };
+		D28232751C16E9D30003DBA1 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = D28232711C16E9D30003DBA1 /* assets */; };
+		D28232761C16E9D30003DBA1 /* bower_components in Resources */ = {isa = PBXBuildFile; fileRef = D28232721C16E9D30003DBA1 /* bower_components */; };
+		D28232771C16E9D30003DBA1 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D28232731C16E9D30003DBA1 /* index.html */; };
+		D28232781C16E9D30003DBA1 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = D28232741C16E9D30003DBA1 /* index.js */; };
 		D9F4BB541C0DFC8F00ADA3F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4BB531C0DFC8F00ADA3F4 /* AppDelegate.swift */; };
 		D9F4BB561C0DFC8F00ADA3F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4BB551C0DFC8F00ADA3F4 /* ViewController.swift */; };
 		D9F4BB591C0DFC8F00ADA3F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F4BB571C0DFC8F00ADA3F4 /* Main.storyboard */; };
 		D9F4BB5B1C0DFC8F00ADA3F4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F4BB5A1C0DFC8F00ADA3F4 /* Images.xcassets */; };
 		D9F4BB5E1C0DFC8F00ADA3F4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9F4BB5C1C0DFC8F00ADA3F4 /* LaunchScreen.xib */; };
 		D9F4BB6A1C0DFC8F00ADA3F4 /* game_circleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4BB691C0DFC8F00ADA3F4 /* game_circleTests.swift */; };
-		D9F4BB7B1C0DFFFF00ADA3F4 /* bower_components in Resources */ = {isa = PBXBuildFile; fileRef = D9F4BB761C0DFFFF00ADA3F4 /* bower_components */; };
-		D9F4BB7C1C0DFFFF00ADA3F4 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = D9F4BB771C0DFFFF00ADA3F4 /* fonts */; };
-		D9F4BB7D1C0DFFFF00ADA3F4 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D9F4BB781C0DFFFF00ADA3F4 /* index.html */; };
-		D9F4BB7E1C0DFFFF00ADA3F4 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = D9F4BB791C0DFFFF00ADA3F4 /* index.js */; };
-		D9F4BB7F1C0DFFFF00ADA3F4 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = D9F4BB7A1C0DFFFF00ADA3F4 /* style.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D24FB3E91C15EA730041E18B /* fontfaceobserver.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = fontfaceobserver.js; path = ../../fontfaceobserver.js; sourceTree = "<group>"; };
-		D24FB3EB1C15EAFA0041E18B /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = ../../pause.png; sourceTree = "<group>"; };
-		D24FB3EC1C15EAFA0041E18B /* swipe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swipe.png; path = ../../swipe.png; sourceTree = "<group>"; };
+		D28232711C16E9D30003DBA1 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../../assets; sourceTree = "<group>"; };
+		D28232721C16E9D30003DBA1 /* bower_components */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bower_components; path = ../../bower_components; sourceTree = "<group>"; };
+		D28232731C16E9D30003DBA1 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = ../../index.html; sourceTree = "<group>"; };
+		D28232741C16E9D30003DBA1 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = index.js; path = ../../index.js; sourceTree = "<group>"; };
 		D9F4BB4E1C0DFC8F00ADA3F4 /* Circle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Circle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F4BB521C0DFC8F00ADA3F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9F4BB531C0DFC8F00ADA3F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,11 +44,6 @@
 		D9F4BB631C0DFC8F00ADA3F4 /* Circle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Circle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F4BB681C0DFC8F00ADA3F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9F4BB691C0DFC8F00ADA3F4 /* game_circleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = game_circleTests.swift; sourceTree = "<group>"; };
-		D9F4BB761C0DFFFF00ADA3F4 /* bower_components */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bower_components; path = ../../bower_components; sourceTree = "<group>"; };
-		D9F4BB771C0DFFFF00ADA3F4 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../../fonts; sourceTree = "<group>"; };
-		D9F4BB781C0DFFFF00ADA3F4 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = ../../index.html; sourceTree = "<group>"; };
-		D9F4BB791C0DFFFF00ADA3F4 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = index.js; path = ../../index.js; sourceTree = "<group>"; };
-		D9F4BB7A1C0DFFFF00ADA3F4 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = style.css; path = ../../style.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,14 +124,10 @@
 		D9F4BB751C0DFFE700ADA3F4 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				D24FB3EB1C15EAFA0041E18B /* pause.png */,
-				D24FB3EC1C15EAFA0041E18B /* swipe.png */,
-				D24FB3E91C15EA730041E18B /* fontfaceobserver.js */,
-				D9F4BB761C0DFFFF00ADA3F4 /* bower_components */,
-				D9F4BB771C0DFFFF00ADA3F4 /* fonts */,
-				D9F4BB781C0DFFFF00ADA3F4 /* index.html */,
-				D9F4BB791C0DFFFF00ADA3F4 /* index.js */,
-				D9F4BB7A1C0DFFFF00ADA3F4 /* style.css */,
+				D28232711C16E9D30003DBA1 /* assets */,
+				D28232721C16E9D30003DBA1 /* bower_components */,
+				D28232731C16E9D30003DBA1 /* index.html */,
+				D28232741C16E9D30003DBA1 /* index.js */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -225,15 +213,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9F4BB7B1C0DFFFF00ADA3F4 /* bower_components in Resources */,
-				D24FB3EE1C15EAFA0041E18B /* swipe.png in Resources */,
-				D24FB3EA1C15EA730041E18B /* fontfaceobserver.js in Resources */,
-				D24FB3ED1C15EAFA0041E18B /* pause.png in Resources */,
-				D9F4BB7F1C0DFFFF00ADA3F4 /* style.css in Resources */,
-				D9F4BB7C1C0DFFFF00ADA3F4 /* fonts in Resources */,
+				D28232761C16E9D30003DBA1 /* bower_components in Resources */,
 				D9F4BB591C0DFC8F00ADA3F4 /* Main.storyboard in Resources */,
-				D9F4BB7D1C0DFFFF00ADA3F4 /* index.html in Resources */,
-				D9F4BB7E1C0DFFFF00ADA3F4 /* index.js in Resources */,
+				D28232751C16E9D30003DBA1 /* assets in Resources */,
+				D28232771C16E9D30003DBA1 /* index.html in Resources */,
+				D28232781C16E9D30003DBA1 /* index.js in Resources */,
 				D9F4BB5E1C0DFC8F00ADA3F4 /* LaunchScreen.xib in Resources */,
 				D9F4BB5B1C0DFC8F00ADA3F4 /* Images.xcassets in Resources */,
 			);
