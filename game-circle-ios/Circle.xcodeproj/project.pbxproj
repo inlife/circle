@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D24FB3EA1C15EA730041E18B /* fontfaceobserver.js in Resources */ = {isa = PBXBuildFile; fileRef = D24FB3E91C15EA730041E18B /* fontfaceobserver.js */; };
+		D24FB3ED1C15EAFA0041E18B /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = D24FB3EB1C15EAFA0041E18B /* pause.png */; };
+		D24FB3EE1C15EAFA0041E18B /* swipe.png in Resources */ = {isa = PBXBuildFile; fileRef = D24FB3EC1C15EAFA0041E18B /* swipe.png */; };
 		D9F4BB541C0DFC8F00ADA3F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4BB531C0DFC8F00ADA3F4 /* AppDelegate.swift */; };
 		D9F4BB561C0DFC8F00ADA3F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4BB551C0DFC8F00ADA3F4 /* ViewController.swift */; };
 		D9F4BB591C0DFC8F00ADA3F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F4BB571C0DFC8F00ADA3F4 /* Main.storyboard */; };
@@ -31,14 +34,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D9F4BB4E1C0DFC8F00ADA3F4 /* game-circle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "game-circle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D24FB3E91C15EA730041E18B /* fontfaceobserver.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = fontfaceobserver.js; path = ../../fontfaceobserver.js; sourceTree = "<group>"; };
+		D24FB3EB1C15EAFA0041E18B /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = ../../pause.png; sourceTree = "<group>"; };
+		D24FB3EC1C15EAFA0041E18B /* swipe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = swipe.png; path = ../../swipe.png; sourceTree = "<group>"; };
+		D9F4BB4E1C0DFC8F00ADA3F4 /* Circle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Circle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F4BB521C0DFC8F00ADA3F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9F4BB531C0DFC8F00ADA3F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9F4BB551C0DFC8F00ADA3F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D9F4BB581C0DFC8F00ADA3F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D9F4BB5A1C0DFC8F00ADA3F4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D9F4BB5D1C0DFC8F00ADA3F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		D9F4BB631C0DFC8F00ADA3F4 /* game-circleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "game-circleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9F4BB631C0DFC8F00ADA3F4 /* Circle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Circle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F4BB681C0DFC8F00ADA3F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9F4BB691C0DFC8F00ADA3F4 /* game_circleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = game_circleTests.swift; sourceTree = "<group>"; };
 		D9F4BB761C0DFFFF00ADA3F4 /* bower_components */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bower_components; path = ../../bower_components; sourceTree = "<group>"; };
@@ -78,8 +84,8 @@
 		D9F4BB4F1C0DFC8F00ADA3F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D9F4BB4E1C0DFC8F00ADA3F4 /* game-circle.app */,
-				D9F4BB631C0DFC8F00ADA3F4 /* game-circleTests.xctest */,
+				D9F4BB4E1C0DFC8F00ADA3F4 /* Circle.app */,
+				D9F4BB631C0DFC8F00ADA3F4 /* Circle.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +132,9 @@
 		D9F4BB751C0DFFE700ADA3F4 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				D24FB3EB1C15EAFA0041E18B /* pause.png */,
+				D24FB3EC1C15EAFA0041E18B /* swipe.png */,
+				D24FB3E91C15EA730041E18B /* fontfaceobserver.js */,
 				D9F4BB761C0DFFFF00ADA3F4 /* bower_components */,
 				D9F4BB771C0DFFFF00ADA3F4 /* fonts */,
 				D9F4BB781C0DFFFF00ADA3F4 /* index.html */,
@@ -138,9 +147,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D9F4BB4D1C0DFC8F00ADA3F4 /* game-circle */ = {
+		D9F4BB4D1C0DFC8F00ADA3F4 /* Circle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D9F4BB6D1C0DFC8F00ADA3F4 /* Build configuration list for PBXNativeTarget "game-circle" */;
+			buildConfigurationList = D9F4BB6D1C0DFC8F00ADA3F4 /* Build configuration list for PBXNativeTarget "Circle" */;
 			buildPhases = (
 				D9F4BB4A1C0DFC8F00ADA3F4 /* Sources */,
 				D9F4BB4B1C0DFC8F00ADA3F4 /* Frameworks */,
@@ -150,14 +159,14 @@
 			);
 			dependencies = (
 			);
-			name = "game-circle";
+			name = Circle;
 			productName = "game-circle";
-			productReference = D9F4BB4E1C0DFC8F00ADA3F4 /* game-circle.app */;
+			productReference = D9F4BB4E1C0DFC8F00ADA3F4 /* Circle.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D9F4BB621C0DFC8F00ADA3F4 /* game-circleTests */ = {
+		D9F4BB621C0DFC8F00ADA3F4 /* CircleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D9F4BB701C0DFC8F00ADA3F4 /* Build configuration list for PBXNativeTarget "game-circleTests" */;
+			buildConfigurationList = D9F4BB701C0DFC8F00ADA3F4 /* Build configuration list for PBXNativeTarget "CircleTests" */;
 			buildPhases = (
 				D9F4BB5F1C0DFC8F00ADA3F4 /* Sources */,
 				D9F4BB601C0DFC8F00ADA3F4 /* Frameworks */,
@@ -168,9 +177,9 @@
 			dependencies = (
 				D9F4BB651C0DFC8F00ADA3F4 /* PBXTargetDependency */,
 			);
-			name = "game-circleTests";
+			name = CircleTests;
 			productName = "game-circleTests";
-			productReference = D9F4BB631C0DFC8F00ADA3F4 /* game-circleTests.xctest */;
+			productReference = D9F4BB631C0DFC8F00ADA3F4 /* Circle.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -184,6 +193,7 @@
 				TargetAttributes = {
 					D9F4BB4D1C0DFC8F00ADA3F4 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = J556EQV2DN;
 					};
 					D9F4BB621C0DFC8F00ADA3F4 = {
 						CreatedOnToolsVersion = 6.4;
@@ -191,7 +201,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D9F4BB491C0DFC8F00ADA3F4 /* Build configuration list for PBXProject "game-circle" */;
+			buildConfigurationList = D9F4BB491C0DFC8F00ADA3F4 /* Build configuration list for PBXProject "Circle" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -204,8 +214,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D9F4BB4D1C0DFC8F00ADA3F4 /* game-circle */,
-				D9F4BB621C0DFC8F00ADA3F4 /* game-circleTests */,
+				D9F4BB4D1C0DFC8F00ADA3F4 /* Circle */,
+				D9F4BB621C0DFC8F00ADA3F4 /* CircleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -216,6 +226,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9F4BB7B1C0DFFFF00ADA3F4 /* bower_components in Resources */,
+				D24FB3EE1C15EAFA0041E18B /* swipe.png in Resources */,
+				D24FB3EA1C15EA730041E18B /* fontfaceobserver.js in Resources */,
+				D24FB3ED1C15EAFA0041E18B /* pause.png in Resources */,
 				D9F4BB7F1C0DFFFF00ADA3F4 /* style.css in Resources */,
 				D9F4BB7C1C0DFFFF00ADA3F4 /* fonts in Resources */,
 				D9F4BB591C0DFC8F00ADA3F4 /* Main.storyboard in Resources */,
@@ -258,7 +271,7 @@
 /* Begin PBXTargetDependency section */
 		D9F4BB651C0DFC8F00ADA3F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D9F4BB4D1C0DFC8F00ADA3F4 /* game-circle */;
+			target = D9F4BB4D1C0DFC8F00ADA3F4 /* Circle */;
 			targetProxy = D9F4BB641C0DFC8F00ADA3F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -370,9 +383,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "game-circle/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Circle;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -380,9 +396,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "game-circle/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Circle;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -400,8 +419,8 @@
 				);
 				INFOPLIST_FILE = "game-circleTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/game-circle.app/game-circle";
+				PRODUCT_NAME = Circle;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Circle.app/Circle";
 			};
 			name = Debug;
 		};
@@ -415,15 +434,15 @@
 				);
 				INFOPLIST_FILE = "game-circleTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/game-circle.app/game-circle";
+				PRODUCT_NAME = Circle;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Circle.app/Circle";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D9F4BB491C0DFC8F00ADA3F4 /* Build configuration list for PBXProject "game-circle" */ = {
+		D9F4BB491C0DFC8F00ADA3F4 /* Build configuration list for PBXProject "Circle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D9F4BB6B1C0DFC8F00ADA3F4 /* Debug */,
@@ -432,21 +451,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D9F4BB6D1C0DFC8F00ADA3F4 /* Build configuration list for PBXNativeTarget "game-circle" */ = {
+		D9F4BB6D1C0DFC8F00ADA3F4 /* Build configuration list for PBXNativeTarget "Circle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D9F4BB6E1C0DFC8F00ADA3F4 /* Debug */,
 				D9F4BB6F1C0DFC8F00ADA3F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		D9F4BB701C0DFC8F00ADA3F4 /* Build configuration list for PBXNativeTarget "game-circleTests" */ = {
+		D9F4BB701C0DFC8F00ADA3F4 /* Build configuration list for PBXNativeTarget "CircleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D9F4BB711C0DFC8F00ADA3F4 /* Debug */,
 				D9F4BB721C0DFC8F00ADA3F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
