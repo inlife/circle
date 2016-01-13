@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         view.addSubview(ViewController.webView)
       
-        ViewController.webView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        ViewController.webView.translatesAutoresizingMaskIntoConstraints = false;
         let height = NSLayoutConstraint(item: ViewController.webView, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: 0)
         let width = NSLayoutConstraint(item: ViewController.webView, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1, constant: 0)
         view.addConstraints([height, width])
