@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D26676731C46EFAC0023B2F6 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = D26676711C46EFAC0023B2F6 /* assets */; };
-		D26676741C46EFAC0023B2F6 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D26676721C46EFAC0023B2F6 /* index.html */; };
+		D27DEC991C4787E100D8EDCD /* assets in Resources */ = {isa = PBXBuildFile; fileRef = D27DEC971C4787E100D8EDCD /* assets */; };
+		D27DEC9A1C4787E100D8EDCD /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D27DEC981C4787E100D8EDCD /* index.html */; };
 		D9F4BB541C0DFC8F00ADA3F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4BB531C0DFC8F00ADA3F4 /* AppDelegate.swift */; };
 		D9F4BB561C0DFC8F00ADA3F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4BB551C0DFC8F00ADA3F4 /* ViewController.swift */; };
 		D9F4BB591C0DFC8F00ADA3F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F4BB571C0DFC8F00ADA3F4 /* Main.storyboard */; };
@@ -28,8 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D26676711C46EFAC0023B2F6 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../../compiled/assets; sourceTree = "<group>"; };
-		D26676721C46EFAC0023B2F6 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = ../../compiled/index.html; sourceTree = "<group>"; };
+		D27DEC971C4787E100D8EDCD /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = "../../game-code/dist/assets"; sourceTree = "<group>"; };
+		D27DEC981C4787E100D8EDCD /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../game-code/dist/index.html"; sourceTree = "<group>"; };
 		D9F4BB4E1C0DFC8F00ADA3F4 /* game-circle.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "game-circle.temp_caseinsensitive_rename.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F4BB521C0DFC8F00ADA3F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9F4BB531C0DFC8F00ADA3F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,8 +122,8 @@
 		D9F4BB751C0DFFE700ADA3F4 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				D26676711C46EFAC0023B2F6 /* assets */,
-				D26676721C46EFAC0023B2F6 /* index.html */,
+				D27DEC971C4787E100D8EDCD /* assets */,
+				D27DEC981C4787E100D8EDCD /* index.html */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -209,9 +209,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D26676741C46EFAC0023B2F6 /* index.html in Resources */,
+				D27DEC9A1C4787E100D8EDCD /* index.html in Resources */,
 				D9F4BB591C0DFC8F00ADA3F4 /* Main.storyboard in Resources */,
-				D26676731C46EFAC0023B2F6 /* assets in Resources */,
+				D27DEC991C4787E100D8EDCD /* assets in Resources */,
 				D9F4BB5E1C0DFC8F00ADA3F4 /* LaunchScreen.xib in Resources */,
 				D9F4BB5B1C0DFC8F00ADA3F4 /* Images.xcassets in Resources */,
 			);

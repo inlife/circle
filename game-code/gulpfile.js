@@ -10,8 +10,8 @@ var minifyHTML = require('gulp-minify-html');
 
 var conf = {
     css: {
-        wrkPath: 'assets/*.css',
-        optPath: '../compiled/assets'
+        wrkPath: 'src/*.css',
+        optPath: 'dist/assets'
     },
     js: {
         wrkPath: [
@@ -20,18 +20,18 @@ var conf = {
             'bower_components/fastclick/lib/fastclick.js',
             'bower_components/jquery/dist/jquery.js',
             'bower_components/fontfaceobserver/fontfaceobserver.js',
-            'assets/index.js'
+            'src/index.js'
         ],
-        optPath: '../compiled/assets',
+        optPath: 'dist/assets',
         optName: 'index.js'
     },
     img: {
-        wrkPath: 'assets/*.png',
-        optPath: '../compiled/assets'
+        wrkPath: 'src/*.png',
+        optPath: 'dist/assets'
     },
     html: {
-        wrkPath: 'assets/*.html',
-        optPath: '../compiled'
+        wrkPath: 'src/*.html',
+        optPath: 'dist'
     }
 };
 

@@ -2,5 +2,5 @@ bower_components
 *android
 *.xcworkspace
 xcuserdata
-compiled
+dist
 node_modules
