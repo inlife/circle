@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  game-circle
+//  circle
 //
 //  Created by Vladyslav Hrytsenko on 12/1/15.
 //  Copyright (c) 2015 Vladyslav Hrytsenko. All rights reserved.

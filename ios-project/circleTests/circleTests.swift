@@ -1,6 +1,6 @@
 //
-//  game_circleTests.swift
-//  game-circleTests
+//  circleTests.swift
+//  circleTests
 //
 //  Created by Vladyslav Hrytsenko on 12/1/15.
 //  Copyright (c) 2015 Vladyslav Hrytsenko. All rights reserved.
