@@ -1,6 +1,6 @@
 bower_components
 *android
 *.xcworkspace
-*.xcscheme
+xcuserdata
 compiled
 node_modules
