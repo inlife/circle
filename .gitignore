@@ -1,2 +1,6 @@
-bower_components/
-*android/
+bower_components
+*android
+*.xcworkspace
+*.xcscheme
+compiled
+node_modules
