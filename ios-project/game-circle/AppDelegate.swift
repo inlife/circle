@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  game-circle
 //
-//  Created by Inlife on 12/1/15.
-//  Copyright (c) 2015 Inlife. All rights reserved.
+//  Created by Vladyslav Hrytsenko on 12/1/15.
+//  Copyright (c) 2015 Vladyslav Hrytsenko. All rights reserved.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ import WebKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
