@@ -17,7 +17,6 @@ Circle – Relaxing Arcade Game
 ```
 Simple, funny and relaxing arcade game.
 Helps to concentrate during a short break.
-
 Follow the target and earn points.
 
 - Session of the game is very short.
