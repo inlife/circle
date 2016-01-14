@@ -69,16 +69,16 @@ $(document).ready(function() {
      * Delete / Remove:
      *   store('my_key', null);
      */
-     
+
     var store = function store(key, value) {
-     
+
         var lsSupport = false;
-        
+
         // Check for native support
         if (localStorage) {
             lsSupport = true;
         }
-        
+
         // If value is detected, set new or modify store
         if (typeof value !== "undefined" && value !== null) {
             // Convert object values to JSON
@@ -92,16 +92,16 @@ $(document).ready(function() {
                 createCookie(key, value, 30);
             }
         }
-        
+
         // No value supplied, return value
         if (typeof value === "undefined") {
             // Get value
             if (lsSupport) { // Native support
                 data = localStorage.getItem(key);
-            } else { // Use cookie 
+            } else { // Use cookie
                 data = readCookie(key);
             }
-            
+
             // Try to parse JSON...
             try {
                data = JSON.parse(data);
@@ -109,11 +109,11 @@ $(document).ready(function() {
             catch(e) {
                data = data;
             }
-            
+
             return data;
-            
+
         }
-        
+
         // Null specified, remove store
         if (value === null) {
             if (lsSupport) { // Native support
@@ -122,26 +122,26 @@ $(document).ready(function() {
                 createCookie(key, '', -1);
             }
         }
-        
+
         /**
          * Creates new cookie or removes cookie with negative expiration
          * @param  key       The key or identifier for the store
          * @param  value     Contents of the store
          * @param  exp       Expiration - creation defaults to 30 days
          */
-        
+
         function createCookie(key, value, exp) {
             var date = new Date();
             date.setTime(date.getTime() + (exp * 24 * 60 * 60 * 1000));
             var expires = "; expires=" + date.toGMTString();
             document.cookie = key + "=" + value + expires + "; path=/";
         }
-        
+
         /**
          * Returns contents of cookie
          * @param  key       The key or identifier for the store
          */
-        
+
         function readCookie(key) {
             var nameEQ = key + "=";
             var ca = document.cookie.split(';');
@@ -152,12 +152,12 @@ $(document).ready(function() {
             }
             return null;
         }
-        
+
     };
 
     /**
      * Number.prototype.format(n, x)
-     * 
+     *
      * @param integer n: length of decimal
      * @param integer x: length of sections
      */
@@ -165,9 +165,9 @@ $(document).ready(function() {
         var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
         return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
     };
-    
 
-    Promise.all([observer.check(), observer2.check()]).then(function () {   
+
+    Promise.all([observer.check(), observer2.check()]).then(function () {
         var GC = new GameController();
         GC.start();
 
@@ -178,7 +178,7 @@ $(document).ready(function() {
         }
 
         window.sendResume = function() {
-            
+
         }
 
         $(window).resize(function() {
@@ -231,7 +231,7 @@ $(document).ready(function() {
         });
 
         this.start = function() {
-            
+
             this.running = true;
             this.started = false;
 
@@ -264,8 +264,8 @@ $(document).ready(function() {
             var color = colors[Math.floor(Math.random() * colors.length)];
             var lastPhraseId = -1;
             var phrases = [
-                "dont let go", 
-                "never give up" , 
+                "dont let go",
+                "never give up" ,
                 "just do it",
                 "your fingers are enemies",
                 "10/10",
@@ -274,8 +274,8 @@ $(document).ready(function() {
                 "youre doing great",
                 "best game ever",
                 "dont be a salad",
-                "water is wet", 
-                "quitters gonna quit", 
+                "water is wet",
+                "quitters gonna quit",
                 "its always easier to leave"
             ];
             var scoreCount = 0;
@@ -416,7 +416,7 @@ $(document).ready(function() {
                 this.dashedBump = function() {
                     bumped = true;
                 };
-                
+
                 this.getDCenter = function() {
                     return { x: dashedS.x, y: dashedS.y };
                 };
@@ -444,7 +444,7 @@ $(document).ready(function() {
             var circle = function(color) {
 
                 var circle = new createjs.Shape();
-                
+
                 circle.graphics
                     .beginFill(color)
                     .drawCircle(0, 0, circleSize * modifier);
@@ -464,8 +464,8 @@ $(document).ready(function() {
                 circle.on("mousedown", function(evt) {
                     if (!self.started) {
                         self.started = true;
-                        createjs.Tween.get(swipeImg).to({ alpha: 0 }, textAnimTime); 
-                        createjs.Tween.get(pauseBtn).to({ alpha: 1 }, textAnimTime); 
+                        createjs.Tween.get(swipeImg).to({ alpha: 0 }, textAnimTime);
+                        createjs.Tween.get(pauseBtn).to({ alpha: 1 }, textAnimTime);
 
                         dashed.dashedBump();
 
@@ -490,7 +490,7 @@ $(document).ready(function() {
                     if (fast) {
                         circle.alpha = val;
                     } else {
-                        createjs.Tween.get(circle).to({ alpha: val }, textAnimTime); 
+                        createjs.Tween.get(circle).to({ alpha: val }, textAnimTime);
                     }
                 };
 
@@ -501,7 +501,7 @@ $(document).ready(function() {
 
                 return this;
             }(color);
-            
+
 
             var message = function() {
                 var size = 28;
@@ -576,7 +576,7 @@ $(document).ready(function() {
                     }
 
                     // calculate score
-                    
+
                     var newScore = Math.max(0, 2.5 - normalized) / 2.5;
                     difficulty += newScore / difficultyIncreaseModifier;
 
@@ -637,7 +637,7 @@ $(document).ready(function() {
                     }
                 }
             }, 1000);
-            
+
             //setRandomPhrase();
 
             if (store("circle_best_score") > 1) {
