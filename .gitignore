@@ -4,3 +4,4 @@ bower_components
 xcuserdata
 dist
 node_modules
+.DS_Store

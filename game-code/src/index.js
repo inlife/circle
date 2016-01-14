@@ -7,8 +7,8 @@
 
 $(document).ready(function() {
 
-    var observer = new FontFaceObserver('Avenir-Black');
-    var observer2 = new FontFaceObserver('Avenir-Roman');
+    // var observer = new FontFaceObserver('Avenir-Black');
+    // var observer2 = new FontFaceObserver('Avenir-Roman');
 
     function touchHandlerDummy(e) {
         e.preventDefault();
@@ -167,26 +167,26 @@ $(document).ready(function() {
     };
 
 
-    Promise.all([observer.check(), observer2.check()]).then(function () {
-        var GC = new GameController();
-        GC.start();
+    // Promise.all([observer.check(), observer2.check()]).then(function () {
+    var GC = new GameController();
+    GC.start();
 
-        window.sendPause = function() {
-            if (GC.running && GC.started && !GC.paused) {
-                GC.pause();
-            }
+    window.sendPause = function() {
+        if (GC.running && GC.started && !GC.paused) {
+            GC.pause();
         }
+    }
 
-        window.sendResume = function() {
+    window.sendResume = function() {
 
+    }
+
+    $(window).resize(function() {
+        if (GC.running) {
+            GC.finish();
         }
-
-        $(window).resize(function() {
-            if (GC.running) {
-                GC.finish();
-            }
-        });
     });
+    // });
 
 
 

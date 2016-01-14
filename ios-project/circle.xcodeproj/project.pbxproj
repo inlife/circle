@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		D27DEC971C4787E100D8EDCD /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = "../../game-code/dist/assets"; sourceTree = "<group>"; };
 		D27DEC981C4787E100D8EDCD /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../game-code/dist/index.html"; sourceTree = "<group>"; };
-		D9F4BB4E1C0DFC8F00ADA3F4 /* game-circle.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "game-circle.temp_caseinsensitive_rename.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9F4BB4E1C0DFC8F00ADA3F4 /* circle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = circle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F4BB521C0DFC8F00ADA3F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9F4BB531C0DFC8F00ADA3F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9F4BB551C0DFC8F00ADA3F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		D9F4BB4F1C0DFC8F00ADA3F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D9F4BB4E1C0DFC8F00ADA3F4 /* game-circle.temp_caseinsensitive_rename.app */,
+				D9F4BB4E1C0DFC8F00ADA3F4 /* circle.app */,
 				D9F4BB631C0DFC8F00ADA3F4 /* game-circle.temp_caseinsensitive_rename.xctest */,
 			);
 			name = Products;
@@ -131,9 +131,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D9F4BB4D1C0DFC8F00ADA3F4 /* game-circle */ = {
+		D9F4BB4D1C0DFC8F00ADA3F4 /* circle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D9F4BB6D1C0DFC8F00ADA3F4 /* Build configuration list for PBXNativeTarget "game-circle" */;
+			buildConfigurationList = D9F4BB6D1C0DFC8F00ADA3F4 /* Build configuration list for PBXNativeTarget "circle" */;
 			buildPhases = (
 				D9F4BB4A1C0DFC8F00ADA3F4 /* Sources */,
 				D9F4BB4B1C0DFC8F00ADA3F4 /* Frameworks */,
@@ -143,9 +143,9 @@
 			);
 			dependencies = (
 			);
-			name = "game-circle";
+			name = circle;
 			productName = "game-circle";
-			productReference = D9F4BB4E1C0DFC8F00ADA3F4 /* game-circle.temp_caseinsensitive_rename.app */;
+			productReference = D9F4BB4E1C0DFC8F00ADA3F4 /* circle.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D9F4BB621C0DFC8F00ADA3F4 /* game-circleTests */ = {
@@ -178,6 +178,7 @@
 				TargetAttributes = {
 					D9F4BB4D1C0DFC8F00ADA3F4 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 89QX7NXPQM;
 					};
 					D9F4BB621C0DFC8F00ADA3F4 = {
 						CreatedOnToolsVersion = 6.4;
@@ -198,7 +199,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D9F4BB4D1C0DFC8F00ADA3F4 /* game-circle */,
+				D9F4BB4D1C0DFC8F00ADA3F4 /* circle */,
 				D9F4BB621C0DFC8F00ADA3F4 /* game-circleTests */,
 			);
 		};
@@ -249,7 +250,7 @@
 /* Begin PBXTargetDependency section */
 		D9F4BB651C0DFC8F00ADA3F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D9F4BB4D1C0DFC8F00ADA3F4 /* game-circle */;
+			target = D9F4BB4D1C0DFC8F00ADA3F4 /* circle */;
 			targetProxy = D9F4BB641C0DFC8F00ADA3F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -362,11 +363,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "game-circle/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "apps1.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "game-circle.temp_caseinsensitive_rename";
+				PRODUCT_BUNDLE_IDENTIFIER = inlife.CircleGame;
+				PRODUCT_NAME = circle;
 			};
 			name = Debug;
 		};
@@ -374,11 +376,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "game-circle/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "apps1.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "game-circle.temp_caseinsensitive_rename";
+				PRODUCT_BUNDLE_IDENTIFIER = inlife.CircleGame;
+				PRODUCT_NAME = circle;
 			};
 			name = Release;
 		};
@@ -430,7 +433,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D9F4BB6D1C0DFC8F00ADA3F4 /* Build configuration list for PBXNativeTarget "game-circle" */ = {
+		D9F4BB6D1C0DFC8F00ADA3F4 /* Build configuration list for PBXNativeTarget "circle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D9F4BB6E1C0DFC8F00ADA3F4 /* Debug */,
