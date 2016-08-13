@@ -9,6 +9,7 @@ Circle – Relaxing Arcade Game
 ### Links
 * Try online in your browser (mobile too!): [https://inlife.github.io/circle/](https://inlife.github.io/circle/)
 * Download in iOS AppStore: [https://itunes.apple.com/us/app/circle-relaxing-arcade-game/id1072705595](https://itunes.apple.com/app/apple-store/id1072705595?pt=118081385&ct=github&mt=8)
+* Download in Google Playstore: [https://play.google.com/store/apps/details?id=inlife.circle](https://play.google.com/store/apps/details?id=inlife.circle&referrer=utm_source%3Dgh)
 
 ### Description
 
