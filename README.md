@@ -9,7 +9,7 @@ It's built using `easeljs` and `tweenjs`, and few other libs. Works on the html5
 
 ## Why
 
-Reason for creating such wierd thing, was more like an attempt to check, is this even possible, and if so, how it will work and what are overall feeling would be.
+Reason for creating such weird thing, was more like an attempt to check, is this even possible, and if so, how it will work and what are overall feeling would be.
 
 **Result:** it's possible to make a small game such way, but i would recommend against doing so. Especially if you need much more canvas drawing operations. One simple, and obvious, reason why not: CPU usage on mobile device will be at max, every second you are playing it.
 
